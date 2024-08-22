@@ -1,21 +1,24 @@
 package com.example.marvelmovie.di
 
 import com.example.marvelmovie.data.api.MovieService
+import com.example.marvelmovie.data.api.Retrofit
 import com.example.marvelmovie.domain.MoviesRepository
 import com.example.marvelmovie.domain.MoviesRepositoryImpl
 import com.example.marvelmovie.domain.MoviesUseCase
 import com.example.marvelmovie.domain.MoviesUseCaseImpl
+import com.example.marvelmovie.presentation.movie.MovieViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-import retrofit2.Retrofit
 
 object MovieModule {
     val instance = module {
         fun provideServiceApi(retrofit: Retrofit): MovieService{
-            return retrofit.create(MovieService::class.java)
+            return retrofit.service
         }
         single { provideServiceApi(retrofit = get()) }
-        factory <MoviesRepository> { MoviesRepositoryImpl(service = get()) }
+        factory <MoviesRepository> { MoviesRepositoryImpl() }
         factory <MoviesUseCase> { MoviesUseCaseImpl(movieRepository = get()) }
+        viewModel { MovieViewModel(useCase = get()) }
 
     }
 

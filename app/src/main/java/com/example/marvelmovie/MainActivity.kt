@@ -2,7 +2,10 @@ package com.example.marvelmovie
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.ViewPager2
 import com.example.marvelmovie.databinding.ActivityMainBinding
+import com.example.marvelmovie.presentation.adapter.FragmentAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -12,5 +15,31 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        setupViewPager()
+    }
+
+    private fun setupViewPager() {
+        val viewPager = binding.viewPager
+        val tabLayout = binding.tabLayoutopc
+
+        viewPager.adapter = FragmentAdapter(this)
+        viewPager.isUserInputEnabled = false
+
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = getTabTitle(position)
+        }.attach()
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+            }
+        })
+    }
+
+    private fun getTabTitle(position: Int): String {
+        return when (position) {
+            0 -> "Todos os filmes"
+            1 -> "Favoritos"
+            else -> ""
+        }
     }
 }

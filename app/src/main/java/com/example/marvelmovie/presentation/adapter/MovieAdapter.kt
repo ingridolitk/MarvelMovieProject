@@ -1,28 +1,22 @@
 package com.example.marvelmovie.presentation.adapter
 
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.marvelmovie.R
+import com.example.marvelmovie.databinding.ItemRvBinding
 import com.example.marvelmovie.model.MovieResult
+import com.example.marvelmovie.utils.layoutInflater
 
-class MovieAdapter(private val list: List<MovieResult>,
-                   private val clickListener: (MovieResult) -> Unit) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter(
+    private val list: List<MovieResult>,
+    private val clickListener: (MovieResult) -> Unit
+) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val card = LayoutInflater
-            .from(parent.context)
-            .inflate(
-                R.layout.item_rv,
-
-                parent,
-                false)
-        return MovieViewHolder(card)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MovieViewHolder(
+        binding = ItemRvBinding.inflate(parent.layoutInflater, parent, false)
+        )
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
 
@@ -48,9 +42,10 @@ class MovieAdapter(private val list: List<MovieResult>,
         return list.size
     }
 
-    class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imgMovie: ImageView = itemView.imgMovie
-        val title: TextView = itemView.titleMovie
+    class MovieViewHolder(private val binding: ItemRvBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        val imgMovie: ImageView = binding.imgMovie
+        val title: TextView = binding.titleMovie
 
     }
 }

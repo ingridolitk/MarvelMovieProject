@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.marvelmovie"
-        minSdk = 31
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -52,6 +52,16 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation (libs.retrofit)
     implementation(libs.retrofit.gson)
-    implementation(libs.koin)
+    implementation(libs.koin.android)
+    implementation(libs.koin.core)
+    implementation(libs.koin.android.compat)
+    implementation(libs.koin.androidx.compose)
+    implementation(libs.koin.androidx.navigation)
+    implementation(libs.koin.androidx.workmanager)
+    androidTestImplementation(libs.koin.test)
     implementation(libs.glide.img)
+
+
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
+
 }

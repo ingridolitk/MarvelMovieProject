@@ -10,11 +10,10 @@ import androidx.viewbinding.ViewBinding
 import org.koin.core.module.Module
 
 
-abstract class BaseFragment<VB : ViewBinding, VM : ViewModel> : Fragment() {
+abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     private var _binding: VB? = null
     protected val binding get() = _binding!!
-    protected abstract val viewModel: VM
 
     protected open val module: Module? = null
     protected open val modules: List<Module>? by lazy {module?.let { listOf(it) }}
@@ -34,4 +33,5 @@ abstract class BaseFragment<VB : ViewBinding, VM : ViewModel> : Fragment() {
         _binding = null
     }
 
+    abstract fun onCreateView(savedInstanceState: Bundle?)
 }

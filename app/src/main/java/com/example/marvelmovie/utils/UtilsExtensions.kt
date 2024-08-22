@@ -1,6 +1,9 @@
-package com.ingrid.projetointegrador_vic.utils
+package com.example.marvelmovie.utils
 
+import android.view.LayoutInflater
 import android.view.View
+
+val View.layoutInflater get() = LayoutInflater.from(context)
 
 fun View.setVisible(visible: Boolean, useInvisible: Boolean = false) {
     visibility = when {

@@ -8,7 +8,7 @@ interface MoviesUseCase {
 }
 
 class MoviesUseCaseImpl(
-    private val movieRepository: MoviesRepositoryImpl
+    private val movieRepository: MoviesRepository
 ) : MoviesUseCase {
 
     override suspend fun getMarvelMovie(): List<MovieResult> =
