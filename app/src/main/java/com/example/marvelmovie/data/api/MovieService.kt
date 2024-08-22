@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface MovieService {
     @GET("saga")
-    suspend fun returnMovies(): ApiResult<List<MovieResult>>
+    suspend fun returnMovies(): List<MovieResult>
 }

@@ -4,13 +4,13 @@ import com.example.marvelmovie.model.ApiResult
 import com.example.marvelmovie.model.MovieResult
 
 interface MoviesUseCase {
-    suspend fun getMarvelMovie(): ApiResult<List<MovieResult>>
+    suspend fun getMarvelMovie(): List<MovieResult>
 }
 
 class MoviesUseCaseImpl(
     private val movieRepository: MoviesRepositoryImpl
 ) : MoviesUseCase {
 
-    override suspend fun getMarvelMovie(): ApiResult<List<MovieResult>> =
+    override suspend fun getMarvelMovie(): List<MovieResult> =
         movieRepository.getMovies()
 }

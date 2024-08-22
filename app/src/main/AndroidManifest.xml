@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoMarvel"
-        tools:targetApi="33">
+        tools:targetApi="33"
+        android:name=".di.MovieApplication">
         <activity
             android:name=".MainActivity"
             android:exported="true"/>
