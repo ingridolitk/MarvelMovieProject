@@ -8,18 +8,19 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.marvelmovie.R
 import com.example.marvelmovie.databinding.FragmentMovieBinding
 import com.example.marvelmovie.model.ApiResult
 import com.example.marvelmovie.model.MovieResult
 import com.example.marvelmovie.presentation.adapter.MovieAdapter
+import com.example.marvelmovie.presentation.descripton.DescriptionFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class MovieFragment : Fragment() {
     private val viewModel: MovieViewModel by viewModel()
     private var _binding: FragmentMovieBinding? = null
     private val binding get() = _binding!!
-    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +35,6 @@ class MovieFragment : Fragment() {
         return root
     }
 
-
     private fun setupRecycleView() = with(binding) {
         rvMovie.apply {
             layoutManager = LinearLayoutManager(context)
@@ -43,11 +43,16 @@ class MovieFragment : Fragment() {
 
     private fun updateAdapter(list: List<MovieResult>) {
 
-        val adapter = MovieAdapter(list,clickListener = {
-            // handleClick(it)
-        })
+        val adapter = MovieAdapter(list)
+        adapter.clickListener = {
+            val fragmentManager = requireActivity().supportFragmentManager
+            val descriptionFragment = DescriptionFragment.newInstance(it)
+            val transaction = fragmentManager.beginTransaction()
+            transaction.replace(R.id.frameLayout_home, descriptionFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
         binding.rvMovie.adapter = adapter
-
     }
 
     private fun observeViewModel()  {

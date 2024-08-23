@@ -1,4 +1,4 @@
-package com.example.marvelmovie.domain
+package com.example.marvelmovie.domain.repository
 
 
 import com.example.marvelmovie.data.api.Retrofit.service

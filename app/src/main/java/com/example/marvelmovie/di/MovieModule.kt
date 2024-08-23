@@ -2,10 +2,10 @@ package com.example.marvelmovie.di
 
 import com.example.marvelmovie.data.api.MovieService
 import com.example.marvelmovie.data.api.Retrofit
-import com.example.marvelmovie.domain.MoviesRepository
-import com.example.marvelmovie.domain.MoviesRepositoryImpl
-import com.example.marvelmovie.domain.MoviesUseCase
-import com.example.marvelmovie.domain.MoviesUseCaseImpl
+import com.example.marvelmovie.domain.repository.MoviesRepository
+import com.example.marvelmovie.domain.repository.MoviesRepositoryImpl
+import com.example.marvelmovie.domain.usecase.MoviesUseCase
+import com.example.marvelmovie.domain.usecase.MoviesUseCaseImpl
 import com.example.marvelmovie.presentation.movie.MovieViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

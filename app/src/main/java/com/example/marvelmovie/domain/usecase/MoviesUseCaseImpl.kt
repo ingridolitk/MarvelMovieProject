@@ -1,6 +1,6 @@
-package com.example.marvelmovie.domain
+package com.example.marvelmovie.domain.usecase
 
-import com.example.marvelmovie.model.ApiResult
+import com.example.marvelmovie.domain.repository.MoviesRepository
 import com.example.marvelmovie.model.MovieResult
 
 interface MoviesUseCase {

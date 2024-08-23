@@ -10,9 +10,10 @@ import com.example.marvelmovie.model.MovieResult
 import com.example.marvelmovie.utils.layoutInflater
 
 class MovieAdapter(
-    private val list: List<MovieResult>,
-    private val clickListener: (MovieResult) -> Unit
+    private val list: List<MovieResult>
 ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+
+    var clickListener: ((MovieResult) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MovieViewHolder(
         binding = ItemRvBinding.inflate(parent.layoutInflater, parent, false)
@@ -29,7 +30,7 @@ class MovieAdapter(
                 ).into(it)
             }
             holder.imgMovie.setOnClickListener {
-                clickListener.invoke(currentItem)
+                clickListener?.invoke(currentItem)
             }
 
         }

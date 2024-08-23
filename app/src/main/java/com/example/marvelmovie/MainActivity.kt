@@ -2,9 +2,11 @@ package com.example.marvelmovie
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.marvelmovie.databinding.ActivityMainBinding
 import com.example.marvelmovie.presentation.adapter.FragmentAdapter
+import com.example.marvelmovie.presentation.descripton.DescriptionFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {

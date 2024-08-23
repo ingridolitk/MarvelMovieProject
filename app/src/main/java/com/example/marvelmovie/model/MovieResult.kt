@@ -1,5 +1,9 @@
 package com.example.marvelmovie.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class MovieResult(
     val title: String,
     val year: String,
@@ -12,4 +16,4 @@ data class MovieResult(
     val actors: String,
     val plot: String,
     val poster: String,
-)
+): Parcelable

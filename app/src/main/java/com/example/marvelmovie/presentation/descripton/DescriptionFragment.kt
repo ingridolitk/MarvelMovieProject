@@ -5,56 +5,63 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.marvelmovie.R
+import com.bumptech.glide.Glide
+import com.example.marvelmovie.databinding.FragmentDescriptionBinding
+import com.example.marvelmovie.model.MovieResult
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [DescriptionFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DescriptionFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentDescriptionBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_description, container, false)
+    ): View {
+        binding = FragmentDescriptionBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+        val movieResult: MovieResult = (arguments?.getParcelable<MovieResult>(MOVIE_RESULT)) as MovieResult
+        binding.titleMovie.text = movieResult.title
+        binding.txtActor.text = movieResult.actors
+        binding.txtPlot.text = movieResult.plot
+        binding.txtGenre.text = movieResult.genre
+     //   Glide.get().load(url).into(binding.imgMovieDesc)
+
+        return root
+
+//        val intent = intent
+//        val url = intent.getStringExtra("imgMovie")
+
+
+    }
+    private fun descriptionBinding(movieResult: MovieResult)  {
+        binding.txtActor.text = movieResult.title
+
+//        var actor = txtActor
+//        var title = titleMovie
+//        var plot = txtPlot
+//        var genre = txtGenre
+//        var imgMovie = imgMovieDesc
+//
+//        val value = intent.getStringExtra("actor")
+//        val titleDesc = intent.getStringExtra("title")
+//        val plotDesc = intent.getStringExtra("plot")
+//        val genreDesc = intent.getStringExtra("genre")
+//
+//        actor.text = value
+//        title.text = titleDesc
+//        plot.text = plotDesc
+//        genre.text = genreDesc
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DescriptionFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DescriptionFragment().apply {
+        const val MOVIE_RESULT ="movieResult"
+
+        fun newInstance(movieResult: MovieResult): DescriptionFragment {
+            return DescriptionFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putParcelable(MOVIE_RESULT, movieResult)
                 }
             }
+        }
     }
+
 }

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.marvelmovie.domain.MoviesUseCase
+import com.example.marvelmovie.domain.usecase.MoviesUseCase
 import com.example.marvelmovie.model.ApiResult
 import com.example.marvelmovie.model.MovieResult
 import kotlinx.coroutines.launch
