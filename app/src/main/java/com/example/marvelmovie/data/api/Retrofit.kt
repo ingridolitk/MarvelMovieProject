@@ -1,9 +1,8 @@
 package com.example.marvelmovie.data.api
 
+import com.example.marvelmovie.utils.URL_MOVIE
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Retrofit
-
-const val URL_MOVIE = "https://private-b34167-rvmarvel.apiary-mock.com/"
 
 object Retrofit {
     var service = createRetrofit()

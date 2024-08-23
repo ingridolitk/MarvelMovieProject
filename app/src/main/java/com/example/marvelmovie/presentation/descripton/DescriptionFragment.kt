@@ -1,13 +1,14 @@
 package com.example.marvelmovie.presentation.descripton
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.marvelmovie.databinding.FragmentDescriptionBinding
 import com.example.marvelmovie.model.MovieResult
+import com.example.marvelmovie.utils.MOVIE_RESULT
 
 class DescriptionFragment : Fragment() {
     private lateinit var binding: FragmentDescriptionBinding
@@ -39,7 +40,6 @@ class DescriptionFragment : Fragment() {
     }
 
     companion object {
-        const val MOVIE_RESULT = "movieResult"
 
         fun newInstance(movieResult: MovieResult): DescriptionFragment {
             return DescriptionFragment().apply {
