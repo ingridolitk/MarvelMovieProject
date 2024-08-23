@@ -13,9 +13,9 @@
 * Gson
 * Koin
 * Coroutines
-* Navigation
 * Fragments
 * Splash
+* Mockk 
 
 <b> Tela de Splash</b>
 
