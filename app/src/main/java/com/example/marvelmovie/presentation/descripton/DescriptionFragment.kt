@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.marvelmovie.R
 import com.example.marvelmovie.databinding.FragmentDescriptionBinding
-import com.example.marvelmovie.model.ApiResult
-import com.example.marvelmovie.model.MovieResult
+import com.example.marvelmovie.data.model.ApiResult
+import com.example.marvelmovie.data.model.MovieResult
 import com.example.marvelmovie.utils.MOVIE_RESULT
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber

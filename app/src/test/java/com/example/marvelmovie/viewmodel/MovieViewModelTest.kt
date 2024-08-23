@@ -1,10 +1,10 @@
-package com.example.marvelmovie.di
+package com.example.marvelmovie.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.example.marvelmovie.domain.usecase.MoviesUseCase
-import com.example.marvelmovie.model.ApiResult
-import com.example.marvelmovie.model.MovieResult
+import com.example.marvelmovie.data.model.ApiResult
+import com.example.marvelmovie.data.model.MovieResult
 import com.example.marvelmovie.movies
 import com.example.marvelmovie.presentation.movie.MovieViewModel
 import junit.framework.TestCase.assertEquals

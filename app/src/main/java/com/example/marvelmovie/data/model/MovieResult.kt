@@ -1,4 +1,4 @@
-package com.example.marvelmovie.model
+package com.example.marvelmovie.data.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

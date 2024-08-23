@@ -11,8 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marvelmovie.R
 import com.example.marvelmovie.databinding.FragmentMovieBinding
-import com.example.marvelmovie.model.ApiResult
-import com.example.marvelmovie.model.MovieResult
+import com.example.marvelmovie.data.model.ApiResult
+import com.example.marvelmovie.data.model.MovieResult
 import com.example.marvelmovie.presentation.adapter.MovieAdapter
 import com.example.marvelmovie.presentation.descripton.DescriptionFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel

@@ -1,4 +1,4 @@
-package com.example.marvelmovie.model
+package com.example.marvelmovie.data.model
 
 sealed class ApiResult {
     data class Success(val movies: List<MovieResult>) : ApiResult()

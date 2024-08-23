@@ -1,15 +1,7 @@
 package com.example.marvelmovie.domain.repository
 
-
-import com.example.marvelmovie.data.api.Retrofit.service
-import com.example.marvelmovie.model.MovieResult
+import com.example.marvelmovie.data.model.MovieResult
 
 interface MoviesRepository {
     suspend fun getMovies(): List<MovieResult>
 }
-
-class MoviesRepositoryImpl()
-    : MoviesRepository {
-    override suspend fun getMovies(): List<MovieResult> =
-            service.returnMovies()
-    }

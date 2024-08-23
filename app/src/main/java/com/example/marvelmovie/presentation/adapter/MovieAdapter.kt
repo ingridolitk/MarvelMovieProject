@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.marvelmovie.databinding.ItemRvBinding
-import com.example.marvelmovie.model.MovieResult
+import com.example.marvelmovie.data.model.MovieResult
 import com.example.marvelmovie.utils.layoutInflater
 
 class MovieAdapter(

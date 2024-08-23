@@ -1,7 +1,7 @@
 package com.example.marvelmovie.domain.usecase
 
 import com.example.marvelmovie.domain.repository.MoviesRepository
-import com.example.marvelmovie.model.MovieResult
+import com.example.marvelmovie.data.model.MovieResult
 
 interface MoviesUseCase {
     suspend fun getMarvelMovie(): List<MovieResult>

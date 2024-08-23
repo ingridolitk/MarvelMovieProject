@@ -1,7 +1,7 @@
 package com.example.marvelmovie.data.api
 
-import com.example.marvelmovie.model.ApiResult
-import com.example.marvelmovie.model.MovieResult
+import com.example.marvelmovie.data.model.ApiResult
+import com.example.marvelmovie.data.model.MovieResult
 import retrofit2.http.GET
 
 interface MovieService {
