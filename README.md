@@ -7,7 +7,7 @@
 * Mvvm + Clean Architecture
 * RecyclerView
 * API - "[https://private-b34167-rvmarvel.apiary-mock.com/saga]"
-* DataBinding
+* ViewBinding
 * Retrofit
 * Glide
 * Gson
