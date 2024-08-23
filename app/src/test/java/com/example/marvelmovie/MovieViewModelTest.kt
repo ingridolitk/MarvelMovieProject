@@ -4,8 +4,10 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.example.marvelmovie.domain.usecase.MoviesUseCase
 import com.example.marvelmovie.model.ApiResult
+import com.example.marvelmovie.model.MovieResult
 import com.example.marvelmovie.movies
 import com.example.marvelmovie.presentation.movie.MovieViewModel
+import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
@@ -63,4 +65,19 @@ class MovieViewModelTest {
         verify(observer).onChanged(ApiResult.ServerError(errorMessage))
         verify(observer).onChanged(ApiResult.Loading(isLoading = false))
     }
+
+
+    @Test
+    fun `test findSearch with no matches`() {
+
+        val searchQuery = "Batman"
+
+        val result = movieViewModel.findSearch(movies, searchQuery)
+
+        assertEquals(
+            emptyList<MovieResult>(),
+            result
+        )
+    }
 }
+

@@ -1,6 +1,5 @@
 package com.example.marvelmovie.presentation.movie
 
-import android.view.KeyEvent
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -28,4 +27,18 @@ class MovieViewModel(private val useCase: MoviesUseCase) :
             }
         }
     }
+
+     fun findSearch(list: List<MovieResult>, writeText: String): List<MovieResult> {
+        val listFind = mutableListOf<MovieResult>()
+        list.forEach {
+            if (it.title.uppercase()
+                    .contains(writeText.uppercase())
+            ) {
+                listFind.add(it)
+            }
+
+        }
+        return listFind
+    }
+
 }
