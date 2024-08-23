@@ -13,30 +13,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageButton
-            android:id="@+id/ibtSearchMovie"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tvInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/background"
-            android:contentDescription="@string/btn_search_movie"
+            android:layout_margin="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/etSearchMovie"
-            android:layout_width="315dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="32dp"
-            android:alpha="0.5"
-            android:autofillHints="no"
-            android:fontFamily="@font/lato_regular"
-            android:hint="@string/search_movie"
-            android:inputType="text"
-            android:textColor="@color/default_text_color"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/ibtSearchMovie"
-            app:layout_constraintTop_toTopOf="parent" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edSearchCharacter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/search_hint"
+                android:imeOptions="actionSearch"
+                android:inputType="textNoSuggestions"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/white"
+                tools:text="Spyder Man" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvGenres"
@@ -47,7 +48,7 @@
         android:textAlignment="center"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ibtSearchMovie"
+        app:layout_constraintTop_toBottomOf="@+id/tvInputLayout"
         tools:listitem = "@layout/item_rv"/>
 
     <androidx.recyclerview.widget.RecyclerView

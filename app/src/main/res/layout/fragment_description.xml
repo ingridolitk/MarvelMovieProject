@@ -15,17 +15,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/small"
+        android:layout_marginTop="@dimen/medium"
         android:layout_marginEnd="@dimen/medium"
         app:cardCornerRadius="@dimen/xlarge"
         app:cardElevation="@dimen/xsmall"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/txtPlot">
 
         <ImageView
             android:id="@+id/imgMovieDesc"
-            android:layout_width="350dp"
+            android:layout_width="@dimen/dimen_350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
@@ -48,18 +48,16 @@
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-         />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtPlot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="5"
-        android:text="Plot"
+        android:text="@string/plot"
         android:textAppearance="@style/textTitle2"
         android:textColor="@color/title_background"
-        Tools:layout_editor_absoluteX="24dp"
         app:layout_constraintBottom_toTopOf="@+id/cvImageDesc"
         app:layout_constraintTop_toBottomOf="@+id/titleMovie" />
 
@@ -67,22 +65,30 @@
         android:id="@+id/txtActor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:maxLines="5"
-        android:text="Actor"
+        android:text="@string/actor"
         android:textAppearance="@style/textDefault"
         android:textColor="@color/title_background"
         app:layout_constraintBottom_toTopOf="@+id/txtGenre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cvImageDesc" />
 
     <TextView
         android:id="@+id/txtGenre"
         android:layout_width="match_parent"
-        android:layout_height="15dp"
+        android:layout_height="@dimen/dimen_15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/lato_regular"
-        android:text="movie_rating"
+        android:text="@string/movie_rating"
         android:textAppearance="@style/textDefault"
         android:textColor="@color/movieTitleColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cvImageDesc" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtActor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

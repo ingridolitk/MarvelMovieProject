@@ -6,6 +6,7 @@ import com.example.marvelmovie.domain.repository.MoviesRepository
 import com.example.marvelmovie.domain.repository.MoviesRepositoryImpl
 import com.example.marvelmovie.domain.usecase.MoviesUseCase
 import com.example.marvelmovie.domain.usecase.MoviesUseCaseImpl
+import com.example.marvelmovie.presentation.descripton.DescriptionViewModel
 import com.example.marvelmovie.presentation.movie.MovieViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -19,7 +20,7 @@ object MovieModule {
         factory <MoviesRepository> { MoviesRepositoryImpl() }
         factory <MoviesUseCase> { MoviesUseCaseImpl(movieRepository = get()) }
         viewModel { MovieViewModel(useCase = get()) }
-
+        viewModel { DescriptionViewModel(useCase = get()) }
     }
 
 }

@@ -6,11 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.marvelmovie.R
 import com.example.marvelmovie.databinding.FragmentDescriptionBinding
+import com.example.marvelmovie.model.ApiResult
 import com.example.marvelmovie.model.MovieResult
 import com.example.marvelmovie.utils.MOVIE_RESULT
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class DescriptionFragment : Fragment() {
+    private val viewModel: DescriptionViewModel by viewModel()
     private lateinit var binding: FragmentDescriptionBinding
 
     override fun onCreateView(
@@ -22,6 +27,7 @@ class DescriptionFragment : Fragment() {
         val movieResult: MovieResult =
             (arguments?.getParcelable<MovieResult>(MOVIE_RESULT)) as MovieResult
         descriptionBinding(movieResult)
+        observeViewModel()
         return root
     }
 
@@ -36,6 +42,26 @@ class DescriptionFragment : Fragment() {
             Glide.with(imgMovie.context).load(
                 movieResult.poster
             ).into(it)
+        }
+    }
+
+    private fun observeViewModel() {
+        viewModel.descriptionDetails.observe(viewLifecycleOwner) { resource ->
+            when (resource) {
+                is ApiResult.Success -> {
+                    viewModel.fetch()
+                }
+
+                is ApiResult.ServerError -> {
+                    Timber.tag(resources.getString(R.string.message_error))
+                }
+
+                is ApiResult.Loading -> {
+
+                }
+
+                else -> {}
+            }
         }
     }
 

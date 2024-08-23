@@ -61,7 +61,7 @@ dependencies {
     implementation(libs.koin.androidx.workmanager)
     androidTestImplementation(libs.koin.test)
     implementation(libs.glide.img)
-
+    implementation(libs.timber)
 
     implementation("androidx.work:work-runtime-ktx:2.7.1")
 

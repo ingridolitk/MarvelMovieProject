@@ -15,6 +15,7 @@ navigationFragmentKtx = "2.7.7"
 navigationUiKtx = "2.7.7"
 glide = "4.16.0"
 parcelize = "1.5.10"
+timber = "4.7.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,7 +38,7 @@ koin-test = {group = "io.insert-koin", name = "koin-test", version.ref = "koin"}
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 glide-img = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
-
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber"}
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

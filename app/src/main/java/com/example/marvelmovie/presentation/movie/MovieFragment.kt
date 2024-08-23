@@ -57,11 +57,13 @@ class MovieFragment : Fragment() {
     }
 
     private fun updateSearch(list: List<MovieResult>) {
-        binding.etSearchMovie.setOnKeyListener { _, keyCode, event ->
+        binding.edSearchCharacter.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
                 val listFind = mutableListOf<MovieResult>()
                 list.forEach {
-                    if (it.title.uppercase().contains(binding.etSearchMovie.text.toString().uppercase())){
+                    if (it.title.uppercase()
+                            .contains(binding.edSearchCharacter.text.toString().uppercase())
+                    ) {
                         listFind.add(it)
                     }
                 }
@@ -73,10 +75,11 @@ class MovieFragment : Fragment() {
         }
     }
 
-    private fun observeViewModel()  {
+    private fun observeViewModel() {
         viewModel.descriptionDetails.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is ApiResult.Success -> {
+                    binding.loading.isVisible
                     updateAdapter(resource.movies)
                     updateSearch(resource.movies)
                     binding.loading.isGone
@@ -94,5 +97,4 @@ class MovieFragment : Fragment() {
             }
         }
     }
-
 }
