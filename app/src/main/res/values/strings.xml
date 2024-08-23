@@ -16,7 +16,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="heart_icon_description">heart icon</string>
     <string name="search_hint">Pesquise o nome do filme</string>
-    <string name="marvel_logo"></string>
+    <string name="marvel_logo">Marvel</string>
     <string name="movie_rating">movie_rating</string>
     <string name="actor">Actor</string>
     <string name="plot">Plot</string>

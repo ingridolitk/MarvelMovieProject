@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.marvelmovie.R
@@ -49,15 +51,19 @@ class DescriptionFragment : Fragment() {
         viewModel.descriptionDetails.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is ApiResult.Success -> {
+                    binding.progressBar.isVisible
                     viewModel.fetch()
+                    binding.progressBar.isGone
                 }
 
                 is ApiResult.ServerError -> {
+                    binding.progressBar.isVisible
                     Timber.tag(resources.getString(R.string.message_error))
+                    binding.progressBar.isGone
                 }
 
                 is ApiResult.Loading -> {
-
+                    binding.progressBar.isVisible
                 }
 
                 else -> {}

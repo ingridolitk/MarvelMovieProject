@@ -6,11 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.marvelmovie.domain.usecase.MoviesUseCase
 import com.example.marvelmovie.model.ApiResult
-import com.example.marvelmovie.model.MovieResult
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import retrofit2.Response
 import java.io.IOException
 
 class DescriptionViewModel(private val useCase: MoviesUseCase) :

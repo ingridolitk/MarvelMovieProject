@@ -51,15 +51,4 @@
         app:layout_constraintTop_toBottomOf="@+id/cvImage"
         tools:text="@string/movie_title" />
 
-    <ToggleButton
-        android:id="@+id/btnHeart"
-        style="@style/toggleButton"
-        android:layout_width="30dp"
-        android:layout_height="25dp"
-        android:background="@drawable/heart_button"
-        android:checked="false"
-        android:contentDescription="@string/heart_icon_description"
-        app:layout_constraintStart_toEndOf="@+id/titleMovie"
-        app:layout_constraintTop_toTopOf="@+id/titleMovie" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
