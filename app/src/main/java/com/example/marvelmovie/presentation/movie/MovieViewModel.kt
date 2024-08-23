@@ -29,16 +29,7 @@ class MovieViewModel(private val useCase: MoviesUseCase) :
     }
 
      fun findSearch(list: List<MovieResult>, writeText: String): List<MovieResult> {
-        val listFind = mutableListOf<MovieResult>()
-        list.forEach {
-            if (it.title.uppercase()
-                    .contains(writeText.uppercase())
-            ) {
-                listFind.add(it)
-            }
-
-        }
-        return listFind
+         val query = writeText.uppercase()
+         return list.filter { it.title.uppercase().contains(query) }
     }
-
 }
