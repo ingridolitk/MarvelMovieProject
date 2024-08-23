@@ -1,6 +1,7 @@
 package com.example.marvelmovie.presentation.movie
 
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,11 +56,29 @@ class MovieFragment : Fragment() {
         binding.rvMovie.adapter = adapter
     }
 
+    private fun updateSearch(list: List<MovieResult>) {
+        binding.etSearchMovie.setOnKeyListener { _, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                val listFind = mutableListOf<MovieResult>()
+                list.forEach {
+                    if (it.title.uppercase().contains(binding.etSearchMovie.text.toString().uppercase())){
+                        listFind.add(it)
+                    }
+                }
+                updateAdapter(listFind)
+                true
+            } else {
+                false
+            }
+        }
+    }
+
     private fun observeViewModel()  {
         viewModel.descriptionDetails.observe(viewLifecycleOwner) { resource ->
             when (resource) {
                 is ApiResult.Success -> {
                     updateAdapter(resource.movies)
+                    updateSearch(resource.movies)
                     binding.loading.isGone
                 }
 

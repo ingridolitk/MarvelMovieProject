@@ -1,6 +1,7 @@
 package com.example.marvelmovie
 
 import android.os.Bundle
+import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager2.widget.ViewPager2
@@ -31,5 +32,6 @@ class MainActivity : AppCompatActivity() {
             override fun onPageSelected(position: Int) {
             }
         })
+
     }
 }
