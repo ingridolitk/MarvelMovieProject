@@ -77,12 +77,11 @@ class MovieFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel.descriptionDetails.observe(viewLifecycleOwner) { resource ->
+            binding.loading.isVisible
             when (resource) {
                 is ApiResult.Success -> {
-                    binding.loading.isVisible
                     updateAdapter(resource.movies)
                     updateSearch(resource.movies)
-                    binding.loading.isGone
                 }
 
                 is ApiResult.ServerError -> {
@@ -95,6 +94,7 @@ class MovieFragment : Fragment() {
 
                 else -> {}
             }
+            binding.loading.isGone
         }
     }
 }

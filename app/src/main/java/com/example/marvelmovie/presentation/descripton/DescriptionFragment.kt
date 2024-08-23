@@ -49,17 +49,14 @@ class DescriptionFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel.descriptionDetails.observe(viewLifecycleOwner) { resource ->
+            binding.progressBar.isVisible
             when (resource) {
                 is ApiResult.Success -> {
-                    binding.progressBar.isVisible
                     viewModel.fetch()
-                    binding.progressBar.isGone
                 }
 
                 is ApiResult.ServerError -> {
-                    binding.progressBar.isVisible
                     Timber.tag(resources.getString(R.string.message_error))
-                    binding.progressBar.isGone
                 }
 
                 is ApiResult.Loading -> {
@@ -68,6 +65,7 @@ class DescriptionFragment : Fragment() {
 
                 else -> {}
             }
+            binding.progressBar.isGone
         }
     }
 
