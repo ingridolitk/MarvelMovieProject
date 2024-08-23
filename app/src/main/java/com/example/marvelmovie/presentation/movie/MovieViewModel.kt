@@ -13,16 +13,17 @@ class MovieViewModel(private val useCase: MoviesUseCase) :
     private val _descriptionDetails = MutableLiveData<ApiResult>()
     val descriptionDetails: LiveData<ApiResult> = _descriptionDetails
 
-     fun getMovies() {
-        ApiResult.Loading(isLoading = true)
-         viewModelScope.launch {
-             _descriptionDetails.value = try {
-                 ApiResult.Success(useCase.getMarvelMovie())
-             } catch (e: Exception) {
-                 ApiResult.ServerError(e.localizedMessage)
-             }
-             ApiResult.Loading(isLoading = false)
-         }
-
+    fun getMovies() {
+        _descriptionDetails.value = ApiResult.Loading(isLoading = true)
+        viewModelScope.launch {
+            try {
+                val result = useCase.getMarvelMovie()
+                _descriptionDetails.value = ApiResult.Success(result)
+            } catch (e: Exception) {
+                _descriptionDetails.value = ApiResult.ServerError(e.localizedMessage)
+            } finally {
+                _descriptionDetails.value = ApiResult.Loading(isLoading = false)
+            }
+        }
     }
 }

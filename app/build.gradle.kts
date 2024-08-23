@@ -51,6 +51,13 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.koin.test.junit)
+    testImplementation(libs.test.mockito.core)
+    testImplementation(libs.test.fragment)
+    testImplementation(libs.test.core)
+    testImplementation(libs.test.coroutines)
+    testImplementation(libs.test.mockk)
     implementation (libs.retrofit)
     implementation(libs.retrofit.gson)
     implementation(libs.koin.android)
@@ -62,7 +69,4 @@ dependencies {
     androidTestImplementation(libs.koin.test)
     implementation(libs.glide.img)
     implementation(libs.timber)
-
-    implementation("androidx.work:work-runtime-ktx:2.7.1")
-
 }
