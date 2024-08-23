@@ -31,4 +31,4 @@
 
 <b> Tela de Pesquisa</b>
 
-<img src= "![image](https://github.com/user-attachments/assets/9f5a19e3-106c-4b42-b133-18bcc6517974)" width = "350" height="500"/>
+<img src= "https://github.com/user-attachments/assets/9f5a19e3-106c-4b42-b133-18bcc6517974" width = "350" height="500"/>
